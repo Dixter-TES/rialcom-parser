@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="RialCom - телекоммуникационная компания">
+
+    <meta name="vapid-key"
+          content="BBH02pmiGgQVpNldPXBrI7dwvz1htPG7yBfQfvnHXg3DioJsX4xEkU7h74AfDer7Ex-s_2u1W8d15aSh-fQ85dQ">
+    <meta name="webpush-group" content="webpush_group">
+    <meta name="service-worker-js" content="/webpush/service-worker.js">
+
+    <title>Rialcom | Тарифы - Интернет</title>
+
+    <link rel="stylesheet" href="/static/bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/style.css"/>
+    <link rel="stylesheet" href="/static/jquery-ui-dist/jquery-ui.css"/>
+    <link rel="stylesheet" href="/static/offcanvas.css"/>
+    <link rel="stylesheet" href="/static/fontawesome/css/all.css"/>
+
+
+    <link rel="shortcut icon" type="image/png" href="/static/img/favicon.ico"/>
+
+
+</head>
+
+
+<body class="d-flex flex-column h-100">
+<header class="fixed-top">
+    <div class="pos-f-t">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+            <div class="container">
+
+                <a class="navbar-brand" href="/"><img src="/static/img/logo_stay_home5.png"></a>
+                <button class="navbar-toggler" type="button" data-toggle="offcanvas"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+                <div class="offcanvas-collapse navbar-collapse" id="navbarSupportedContent">
+
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Главная <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about_us/">О компании</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="open_zone()" data-toggle="modal"
+                               data-target="#zoneModal">Зона обслуживания</a>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Тарифы
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right pr-2 pl-2 shadow border-0"
+                                 aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item btn btn-sm btn-light" href="/internet_tariffs/">Интернет</a>
+                                <a class="dropdown-item btn btn-sm btn-light" href="/telephony_tariffs/">Телефония</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#busModal" data-height="750px"
+                               data-whatever="Онлайн заявки" data-busurl="share/online-request/site/">Онлайн заявки</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="open_contacts()" data-toggle="modal"
+                               data-target="#contactsModal">Контакты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/licenses/">Лицензии</a>
+                        </li>
+
+                    </ul>
+                    <div class="dropdown">
+                        <button class="btn btn-danger shadow-sm dropdown-toggle" id="dropdownMenuClient" type="button"
+                                data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Клиентам
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right pr-2 pl-2 shadow border-0"
+                             aria-labelledby="dropdownMenuClient">
+                            <a class="dropdown-item btn btn-sm btn-light" href="#" role="button" data-toggle="modal"
+                               onclick="speedtestreload()" data-target="#speedTestModal">Проверка скорости</a>
+                            <a class="dropdown-item btn btn-sm btn-light" href="http://help.rialcom.ru" target="_blank"
+                               role="button">Помощь</a>
+                            <a class="dropdown-item btn btn-sm btn-light" href="/documents/" role="button">Документы</a>
+                            <a class="dropdown-item btn btn-sm btn-light" href="#" onclick="open_payment_method()"
+                               data-toggle="modal" data-target="#contactsModal">Оплата</a>
+                            <a class="dropdown-item btn btn-sm btn-light" href="#" role="button" data-height="730px"
+                               data-toggle="modal" data-target="#busModal" data-whatever="Заявление"
+                               data-busurl="share/statement/site/">Заявление</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item btn btn-sm btn-outline-danger" href="https://stat.rialcom.ru/"
+                               role="button" target="_blank">Личный кабинет</a>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </nav>
+
+
+    </div>
+
+
+</header>
+<main role="main" class="flex-shrink-0">
+
+    <div class="container bg-white h-100 py-3 py-lg-4 px-lg-4">
+        <div class="row">
+            <div class="col-md-8 mb-3">
+
+                <h2 class="text-danger">Тарифы - Интернет</h2>
+
+                <div class="mt-4 accordion " id="accordionTariff">
+
+                    <div class="card border-0 mb-3">
+                        <div class="bg-secondary" id="heading1">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link text-white" type="button" data-toggle="collapse"
+                                        data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                    Многоквартирные дома
+                                </button>
+                            </h5>
+
+                        </div>
+
+                        <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionTariff">
+                            <div class="mt-3">
+                                <p>Тарифы действительны для физических лиц, проживающих в многоквартирных домах.</p>
+
+                                <div class="px-3 py-2 bg-danger text-white">Интернет</div>
+
+                                <table class="table table-sm table-striped table-borderless table-responsive-sm ">
+                                    <thead class="small">
+                                    <tr>
+                                        <th scope="col">Название тарифа</th>
+                                        <th scope="col">Абонентская плата в расчетный период</th>
+                                        <th scope="col">Расчетный период</th>
+                                        <th scope="col">Скорость доступа *</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td>РиалКомий-15+</td>
+                                        <td>1000 руб.</td>
+                                        <td>1 мес.</td>
+                                        <td>до 200000 кбит/с</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>РиалКомий-15</td>
+                                        <td>800 руб.</td>
+                                        <td>1 мес.</td>
+                                        <td>до 150000 кбит/с</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Фермий-15</td>
+                                        <td>500 руб.</td>
+                                        <td>1 мес.</td>
+                                        <td>до 100000 кбит/с</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Социальный **</td>
+                                        <td>100 руб.</td>
+                                        <td>1 мес.</td>
+                                        <td>до 2000 кбит/с</td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+
+                                <small class="form-text text-justify bg-light p-2">
+                                    * Скорость доступа к сети Интернет является величиной неопределенной и зависит от
+                                    ряда параметров, в том числе технических характеристик подключения данных точек,
+                                    маршрута и текущей загрузки каналов. Все параметры являются переменными и не
+                                    гарантируются Оператором за пределами своей сети.
+                                    <br>** тариф действует для многодетных семей и семей, воспитывающих детей инвалидов
+                                </small>
+
+                                <div class="px-3 py-2 mt-5 bg-dark text-white">Интернет + Интерактивное ТВ</div>
+
+
+                                <table class="table table-sm table-striped table-borderless table-responsive">
+                                    <thead>
+                                    <tr class="small text-center">
+                                        <th scope="col"></th>
+                                        <!--  <th scope="col" >РиалКом Интернет 50 + ТВ</th> -->
+                                        <th scope="col">РиалКом Интернет 100 + ТВ</th>
+                                        <th scope="col">РиалКом Интернет 150* + ТВ</th>
+                                        <th scope="col">РиалКом Интернет 200* + ТВ</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="text-center">
+
+                                    <tr>
+                                        <td class="text-left">Комбо Лайт (165 каналов)</td>
+                                        <!--     <td>549</td> -->
+                                        <td>649</td>
+                                        <td>949</td>
+                                        <td>1149</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Комбо Люкс +AMEDIATEKA (237 каналов)</td>
+                                        <!--     <td>849</td> -->
+                                        <td>949</td>
+                                        <td>1249</td>
+                                        <td>1449</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Комбо Люкс +START (237 каналов)</td>
+                                        <!--     <td>849</td> -->
+                                        <td>949</td>
+                                        <td>1249</td>
+                                        <td>1449</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Комбо Макс (298 каналов)</td>
+                                        <!--     <td>1199</td> -->
+                                        <td>1499</td>
+                                        <td>1799</td>
+                                        <td>1999</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Комбо Микс + AMEDIATEKA (233 канала)</td>
+                                        <!--     <td>699</td> -->
+                                        <td>799</td>
+                                        <td>1099</td>
+                                        <td>1299</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Комбо Микс + PREMIER (219 каналов)</td>
+                                        <!--     <td>699</td> -->
+                                        <td>799</td>
+                                        <td>1099</td>
+                                        <td>1299</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Комбо Микс + START (229 каналов)</td>
+                                        <!--     <td>699</td> -->
+                                        <td>799</td>
+                                        <td>1099</td>
+                                        <td>1299</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Комбо Хит (216 каналов)</td>
+                                        <!--     <td>619</td> -->
+                                        <td>719</td>
+                                        <td>1019</td>
+                                        <td>1219</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Оптима (271 канал)</td>
+                                        <!--     <td>849</td> -->
+                                        <td>999</td>
+                                        <td>1299</td>
+                                        <td>1499</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Стандарт (215 каналов)</td>
+                                        <!--     <td>599</td> -->
+                                        <td>749</td>
+                                        <td>1049</td>
+                                        <td>1249</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Эксклюзив (298 каналов)</td>
+                                        <!--     <td>1149</td> -->
+                                        <td>1499</td>
+                                        <td>1799</td>
+                                        <td>1999</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Эксклюзив + Кино (302 канала)</td>
+                                        <!--     <td>1399</td> -->
+                                        <td>1699</td>
+                                        <td>1999</td>
+                                        <td>2199</td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+
+                                <small class="form-text text-justify bg-light p-2">
+                                    *тарифный план предоставляется только после уточнения технической возможности, а так
+                                    же наличия Ethernet порта скоростью не ниже 1 Гб/с со стороны абонента
+                                </small>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card border-0 mb-3">
+                        <div class="bg-secondary" id="heading2">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link text-white" type="button" data-toggle="collapse"
+                                        data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                                    Частные дома и коттеджи
+                                </button>
+                            </h5>
+
+                        </div>
+
+                        <div id="collapse2" class="collapse" aria-labelledby="heading2" data-parent="#accordionTariff">
+                            <div class="mt-3">
+                                <p>Тарифы действительны для физических лиц, проживающих в частных домах, коттеджах и
+                                    других отдельно стоящих частных владениях.</p>
+                                <p>Стоимость подключения одного частного владения составляет 9000руб. (при наличии
+                                    технической возможности). В эту стоимость входит:</p>
+                                <ul>
+                                    <li>прокладка ВОК в пределах 100 метров до здания владельца;</li>
+                                    <li>ввод в здание и прокладка кабеля в пределах 5 метров в техническом помещении;
+                                    </li>
+                                    <li>подготовка ВОК к включению в оптический порт абонента.</li>
+                                </ul>
+
+                                <div class="px-3 py-2 bg-danger text-white">Интернет</div>
+
+                                <table class="table table-sm table-striped table-borderless table-responsive-sm">
+                                    <thead class="small">
+                                    <tr>
+                                        <th scope="col">Название тарифа</th>
+                                        <th scope="col">Абонентская плата в расчетный период *</th>
+                                        <th scope="col">Расчетный период</th>
+                                        <th scope="col">Скорость доступа **</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                        <td>Дом №5</td>
+                                        <td>3000 руб.</td>
+                                        <td>1 мес.</td>
+                                        <td>до 150000 кбит/с</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Дом №4</td>
+                                        <td>2000 руб.</td>
+                                        <td>1 мес.</td>
+                                        <td>до 100000 кбит/с</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Дом №3</td>
+                                        <td>1700 руб.</td>
+                                        <td>1 мес.</td>
+                                        <td>до 72000 кбит/с</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Дом №2</td>
+                                        <td>1200 руб.</td>
+                                        <td>1 мес.</td>
+                                        <td>до 32000 кбит/с</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Дом №1</td>
+                                        <td>900 руб.</td>
+                                        <td>1 мес.</td>
+                                        <td>до 16000 кбит/с</td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+
+                                <small class="form-text text-justify bg-light p-2">
+                                    * абонентская плата списывается с расчетного счета ежемесячно, минимальный период
+                                    оплаты в расчетном периоде составляет 1 месяц<br>
+                                    ** Скорость доступа к сети Интернет является величиной неопределенной и зависит от
+                                    ряда параметров, в том числе технических характеристик подключения данных точек,
+                                    маршрута и текущей загрузки каналов. Все параметры являются переменными и не
+                                    гарантируются Оператором за пределами своей сети.
+                                </small>
+
+                                <div class="px-3 py-2 mt-5 bg-dark text-white">Интернет + Интерактивное ТВ</div>
+
+                                <table class="table table-sm table-striped table-borderless table-responsive">
+                                    <thead class="small text-center">
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">РиалКом Интернет + ТВ Дом 50</th>
+                                        <th scope="col">РиалКом Интернет + ТВ Дом 100</th>
+                                        <th scope="col">РиалКом Интернет + ТВ Дом 150*</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="text-center">
+
+                                    <tr>
+                                        <td class="text-left">Комбо Лайт</td>
+                                        <td>1599</td>
+                                        <td>2149</td>
+                                        <td>3149</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Комбо Люкс +AMEDIATEKA</td>
+                                        <td>1899</td>
+                                        <td>2449</td>
+                                        <td>3449</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Комбо Люкс +START</td>
+                                        <td>1899</td>
+                                        <td>2449</td>
+                                        <td>3449</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Комбо Макс</td>
+                                        <td>2449</td>
+                                        <td>2999</td>
+                                        <td>3999</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Комбо Микс + AMEDIATEKA</td>
+                                        <td>1749</td>
+                                        <td>2299</td>
+                                        <td>3299</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Комбо Микс + PREMIER</td>
+                                        <td>1749</td>
+                                        <td>2299</td>
+                                        <td>3299</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Комбо Микс + START</td>
+                                        <td>1749</td>
+                                        <td>2299</td>
+                                        <td>3299</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Комбо Хит</td>
+                                        <td>1669</td>
+                                        <td>2219</td>
+                                        <td>3219</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Оптима</td>
+                                        <td>1949</td>
+                                        <td>2499</td>
+                                        <td>3499</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Стандарт</td>
+                                        <td>1699</td>
+                                        <td>2249</td>
+                                        <td>3249</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Эксклюзив</td>
+                                        <td>2449</td>
+                                        <td>2999</td>
+                                        <td>3999</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="text-left">Эксклюзив + Кино</td>
+                                        <td>2649</td>
+                                        <td>3199</td>
+                                        <td>4199</td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+
+                                <small class="form-text text-justify bg-light p-2">
+                                    *тарифный план предоставляется только после уточнения технической возможности, а так
+                                    же наличия Ethernet порта скоростью не ниже 1 Гб/с со стороны абонента
+                                </small>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="card border-0 mb-3">
+                        <div class="bg-secondary" id="heading3">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link text-white" type="button" data-toggle="collapse"
+                                        data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                                    Дополнительные пакеты к интерактивному ТВ
+                                </button>
+                            </h5>
+
+                        </div>
+
+                        <div id="collapse3" class="collapse" aria-labelledby="heading3" data-parent="#accordionTariff">
+                            <div class="mt-3">
+
+
+                                <p class="font-weight-bold">Подключение онлайн-кинотеатров:</p>
+
+                                <table class="table table-sm table-striped table-borderless table-responsive-sm">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col">Название</th>
+                                        <th scope="col">Дополнительная абонентская плата, руб./мес</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>Start</td>
+                                        <td>499</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PREMIER</td>
+                                        <td>399</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+
+
+                                <p class="font-weight-bold">Дополнительные пакеты каналов:</p>
+
+                                <table class="table table-sm table-striped table-borderless table-responsive-sm">
+                                    <thead>
+                                    <tr>
+                                        <th class="col-md-3" scope="col">Название</th>
+                                        <th scope="col">Дополнительная абонентская плата, руб./мес</th>
+                                        <th scope="col">Количество каналов</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                    <tr>
+                                        <td>Amediateka</td>
+                                        <td>349</td>
+                                        <td>4</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>МАТЧ ПРЕМЬЕР</td>
+                                        <td>299</td>
+                                        <td>1</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>МАТЧ! Футбол</td>
+                                        <td>380</td>
+                                        <td>3</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>Настрой кино</td>
+                                        <td>380</td>
+                                        <td>5</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>Ночной</td>
+                                        <td>249</td>
+                                        <td>8</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td>Shant Premium HD</td>
+                                        <td>299</td>
+                                        <td>4</td>
+                                    </tr>
+
+
+                                    </tbody>
+                                </table>
+
+                                <p class="font-weight-bold">Выберите пакет чтобы узнать список каналов:</p>
+                                <div class="row">
+                                    <div class="col-md-4 ml-1">
+                                        <div class="form-group"><label class="sr-only"
+                                                                       for="id_subscription">Пакет</label><select
+                                                name="subscription" class="form-control form-control-sm" title=""
+                                                id="id_subscription">
+                                            <option value="" selected>---------</option>
+
+                                            <option value="52">Второй (архив)</option>
+
+                                            <option value="53">Третий + Megogo (архив)</option>
+
+                                            <option value="54">Третий + IVI (архив)</option>
+
+                                            <option value="5001">Комфорт (архив)</option>
+
+                                            <option value="71">Максимальный + IVI (архив)</option>
+
+                                            <option value="72">Максимальный + Amediateka (архив)</option>
+
+                                            <option value="5002">Премиум (архив)</option>
+
+                                            <option value="5003">Всё включено + Start (архив)</option>
+
+                                            <option value="73">УльтраКИНО (архив)</option>
+
+                                            <option value="6011">Комбо Лайт</option>
+
+                                            <option value="6012">Комбо Хит</option>
+
+                                            <option value="6013">Комбо Микс + IVI (архив)</option>
+
+                                            <option value="6014">Комбо Люкс + IVI (архив)</option>
+
+                                            <option value="6017">Комбо Люкс +START</option>
+
+                                            <option value="6016">Комбо Люкс +AMEDIATEKA</option>
+
+                                            <option value="6018">Комбо Макс</option>
+
+                                            <option value="6001">Стандарт</option>
+
+                                            <option value="6002">Оптима</option>
+
+                                            <option value="6003">Эксклюзив</option>
+
+                                            <option value="6004">Эксклюзив + Кино</option>
+
+                                            <option value="6010">Комбо Люкс + PREMIER + Лучшее от more.tv</option>
+
+                                            <option value="6009">Комбо Микс + PREMIER</option>
+
+                                            <option value="6040">Комбо Микс +AMEDIATEKA</option>
+
+                                            <option value="6041">Комбо Микс +START</option>
+
+                                            <optgroup label="Доп. пакеты">
+                                                <option value="213">Amediateka</option>
+
+                                                <option value="105">МАТЧ ПРЕМЬЕР</option>
+
+                                                <option value="111">МАТЧ! Футбол</option>
+
+                                                <option value="115">Настрой кино</option>
+
+                                                <option value="132">Ночной</option>
+
+                                                <option value="140">Shant Premium HD</option>
+
+                                            </optgroup>
+                                        </select></div>
+                                    </div>
+                                </div>
+                                <div id="channels_list"></div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="side-bar">
+
+                    <div>
+
+                        <button class="btn btn-block btn-dark shadow mb-3" onClick="popitup('/c4chat/client.php');">
+                            <div class="row">
+                                <div class="col d-flex justify-content-center align-items-center">Техническая поддержка
+                                    online
+                                </div>
+                                <div class="col-md-auto col-sm-auto col-lg-auto">
+                                    <img src="/static/img/icon/icon-online.png" width="50px" height="50px">
+                                </div>
+                            </div>
+                        </button>
+
+                        <button class="btn btn-block btn-outline-danger shadow-sm mb-3" data-height="530px"
+                                data-toggle="modal" data-target="#busModal" data-whatever="Заявка на обратный звонок"
+                                data-busurl="share/callback/site/">
+                            <div class="row">
+                                <div class="col d-flex justify-content-center align-items-center">Не смог дозвониться?
+                                    Закажи обратный звонок
+                                </div>
+                                <div class="col-md-auto col-sm-auto col-lg-auto">
+                                    <img src="/static/img/icon/icon-callback.png" width="50px" height="50px">
+                                </div>
+                            </div>
+                        </button>
+
+
+                        <a class="btn btn-block btn-outline-dark shadow-sm" href="/accept_doc/">
+                            <div class="row">
+                                <div class="col d-flex justify-content-center align-items-center">Отправить фото
+                                    заявления
+                                </div>
+                                <div class="col-md-auto col-sm-auto col-lg-auto">
+                                    <img src="/static/img/icon/icon-share.png" width="50px" height="50px">
+                                </div>
+                            </div>
+                        </a>
+
+
+                        <a class="btn btn-block btn-danger shadow-sm mb-3 mt-3" target="_blank"
+                           href="https://stat.rialcom.ru/?module=terminal_payment">
+                            <div class="row">
+                                <div class="col d-flex justify-content-center align-items-center">Оплата услуг</div>
+                                <div class="col-md-auto col-sm-auto col-lg-auto">
+                                    <img src="/static/img/icon/icon-card_small.png" width="50px" height="50px">
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 mb-3">
+
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="side-bar">
+
+
+                </div>
+
+
+                <div class="card mt-3 shadow-sm">
+                    <div class="card-header ">
+                        Контакты
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text" style="margin-bottom:0px;margin-top:15px;">Круглосуточная техническая
+                            поддержка:</p>
+                        <ul class="text-danger mb-0">
+                            <li><a href="tel:84955805777" class="text-body">8 (495) 580-57-77</a></li>
+                            <!-- li><a href="mailto:support@rialcom.ru" class="text-body">support@rialcom.ru</a></li -->
+                        </ul>
+
+
+                        <p class="card-text" style="margin-bottom:0px;margin-top:15px;">г.о. Подольск</p>
+                        <ul class="text-danger mb-0">
+                            <li><a href="tel:84967585777" class="text-body">8 (4967) 58-57-77</a></li>
+                        </ul>
+                        <p class="card-text" style="margin-bottom:0px;margin-top:15px;">г.о. Чехов</p>
+                        <ul class="text-danger mb-0">
+                            <li><a href="tel:84967272777" class="text-body">8 (4967) 27-27-77</a></li>
+                        </ul>
+                        <p class="card-text" style="margin-bottom:0px;margin-top:15px;">г.о. Серпухов, г. Пущино, г.
+                            Протвино</p>
+                        <ul class="text-danger mb-0">
+                            <li><a href="tel:84967124777" class="text-body">8 (4967) 12-47-77</a></li>
+                        </ul>
+
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <p>
+                        <a class="btn btn-light btn-block shadow-sm" data-toggle="collapse" href="#collapseForm"
+                           role="button" aria-expanded="false" aria-controls="collapseForm">
+                            Письмо руководству компании
+                        </a>
+                    </p>
+                    <div class="collapse" id="collapseForm">
+                        <div class="card card-body">
+                            <div id="body_form">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+<div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert"
+     style="position: absolute; bottom: 0; right: 0; max-width: 380px; z-index: 99999;">
+    Для удобства работы с сайтом мы используем файлы <a href="#" class="alert-link">cookie</a>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="close_cookie_message()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+
+<footer class="mt-auto py-3 bg-light border-top shadow-sm">
+    <div class="container">
+        <div class="row pr-4 pl-4">
+            <div class="col-md-8 ">
+                2000 - 2026 &copy; RialCom
+            </div>
+            <div class="col-md-4 d-flex justify-content-lg-end social_button">
+                <a class="mr-2" href="https://vk.com/public66584417" target="_blank"><i class="fab fa-vk fa-2x"></i></a>
+                <a class="mr-2" href="https://t.me/wwwrialcomru" target="_blank"><i
+                        class="fab fa-telegram fa-2x"></i></a>
+
+                <!--    <a class="mr-2" href="https://www.facebook.com/rialcom" target="_blank"><i class="fab fa-facebook-square fa-2x"></i></a> -->
+                <!--    <a class="" href="https://twitter.com/rialcom" target="_blank"><i class="fab fa-twitter fa-2x"></i></a> -->
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<div class="modal fade" id="speedTestModal" tabindex="-1" role="dialog" aria-labelledby="speedTestModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="speedTestModalLabel">Проверка скорости</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="min-height:650px;">
+                <div class="embed-responsive embed-responsive-16by9 h-100">
+                    <iframe id="speedTestFrame" name="no_cache_me_please" class="h-100 embed-responsive-item"
+                            height="550px" width="550px"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="zoneModal" tabindex="-1" role="dialog" aria-labelledby="zoneModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="zoneModalLabel">Зона обслуживания</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="height:600px; position: relative;">
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="contactsModal" tabindex="-1" role="dialog" aria-labelledby="contactsModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contactsModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="busModal" tabindex="-1" role="dialog" aria-labelledby="busModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="busModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" style="min-height:400px;">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/main.js"></script>
+<script src="/static/jquery/dist/jquery.min.js"></script>
+<script src="/static/jquery-ui-dist/jquery-ui.min.js"></script>
+<script src="/static/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+<script src="/static/ckeditor/ckeditor-init.js"></script>
+<script src="/static/offcanvas.js"></script>
+<script src="/static/fontawesome/js/all.min.js"></script>
+<script src="/static/registerSw.js"></script>
+
+
+<script language="javascript" type="text/javascript">
+
+    function popitup(url) {
+        newwindow = window.open(url, '', 'height=480,width=640');
+        if (window.focus) {
+            newwindow.focus()
+        }
+        return false;
+    }
+
+
+    function open_zone() {
+        $.ajax({
+            url: "/bus/zone/",
+            type: "GET", // http method
+            success: function (data) {
+                $('#zoneModal .modal-body').val('').html(data);
+            },
+            error: function (xhr, errmsg, err) {
+                $('#zoneModal .modal-body').html("<div class='alert alert-danger' role='alert'>Oops! Что-то пошло не так: " + errmsg +
+                    " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                console.log(err); // provide a bit more info about the error to the console
+            }
+        });
+    }
+
+    function open_contacts() {
+        $.ajax({
+            url: "/contacts/",
+            success: function (data) {
+                console.log(data);
+                console.log("success");
+                $('#contactsModal .modal-body').val('').html(data);
+                $('#contactsModal .modal-title').text('Контакты');
+            },
+            error: function (xhr, errmsg, err) {
+                $('#contactsModal .modal-body').html("<div class='alert alert-danger' role='alert'>Oops! Что-то пошло не так: " + errmsg +
+                    " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                console.log(err); // provide a bit more info about the error to the console
+            }
+        });
+    }
+
+    function open_payment_method() {
+        $.ajax({
+            url: "/payment_method/",
+            success: function (data) {
+                console.log("success");
+                $('#contactsModal .modal-body').val('').html(data);
+                $('#contactsModal .modal-title').text('Способы оплаты');
+            },
+            error: function (xhr, errmsg, err) {
+                $('#contactsModal .modal-body').html("<div class='alert alert-danger' role='alert'>Oops! Что-то пошло не так: " + errmsg +
+                    " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                console.log(xhr.status + ": " + xhr.responseText); // provide a bit more info about the error to the console
+                console.log(err); // provide a bit more info about the error to the console
+            }
+        });
+    }
+
+
+    function close_cookie_message() {
+        $.ajax({
+            url: "/set_cookie_message/",
+            success: function (data) {
+                console.log("success");
+            }
+        });
+    }
+
+
+    $('#busModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var recipient = button.data('whatever');
+        var busurl = 'https://business.rialcom.ru/' + button.data('busurl');
+        var height = button.data('height');
+
+        console.log(busurl);
+
+        var modal = $(this);
+        modal.find('.modal-title').text(recipient);
+        modal.find('.modal-body').height(height);
+        modal.find('.modal-body').html('<iframe src="' + busurl + '" frameborder="no" width="100%" height="100%"></iframe>');
+    })
+
+    $('#collapseForm').on('show.bs.collapse', function () {
+        var busurl = 'https://business.rialcom.ru/share/letter-to-administration/site/';
+        $('#collapseForm #body_form').height(350);
+        $('#collapseForm #body_form').html('<iframe src="' + busurl + '" frameborder="no" width="100%" height="100%"></iframe>');
+    })
+
+    $('#collapseForm').on('hidden.bs.collapse', function () {
+        $('#collapseForm #body_form').html('');
+    })
+
+    function clearForm() {
+        $(':input', 'form')
+            .not(':button, :submit, :reset, :hidden, :radio, :checkbox')
+            .val('').trigger('change');
+
+        $(':radio, :checkbox', 'form')
+            .removeAttr('checked')
+            .removeAttr('selected')
+            .prop('checked', false)
+            .prop('selected', false)
+    }
+
+    function speedtestreload() {
+//    document.getElementById("speedTestFrame").src = "https://2ip.ru/speed-widget/?id=1137&rand=" + Math.round(Math.random() * 10000000);
+
+        document.getElementById("speedTestFrame").src = "/get2ip/get_page.php?rand=" + Math.round(Math.random() * 10000000);
+
+    };
+
+    //window.onload = function(){
+    //    document.getElementById("speedTestFrame").src = "https://2ip.ru/speed-widget/?id=1137";
+    //    document.getElementById('speedTestFrame').contentWindow.location.reload();
+    // window.frames['speedTestFrame'].location.reload();
+    // };
+
+
+</script>
+
+<script>
+
+    $('#id_subscription').change(function () {
+        sub_id = $('#id_subscription').val();
+        if (sub_id) {
+            $.ajax({
+                url: "/smotreshka/sub/" + sub_id,
+                type: "GET", // http method
+                success: function (data) {
+                    $('#channels_list').val('').html(data);
+                },
+                error: function (xhr, errmsg, err) {
+                    $('#channels_list').html("<div class='alert alert-danger' role='alert'>Oops! Что-то пошло не так: " + errmsg +
+                        " <a href='#' class='close'>&times;</a></div>"); // add the error to the dom
+                }
+            });
+        } else {
+            $('#channels_list').val('').html('');
+        }
+    });
+</script>
+
+</body>
+</html>
