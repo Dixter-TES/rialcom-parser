@@ -31,7 +31,7 @@
 git clone https://github.com/Dixter-TES/rialcom-parser.git
 ```
 
-Перейдите в диреторию проекта
+Перейдите в директорию проекта
 ```powershell
 cd rialcom-parser
 ```
